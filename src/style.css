@@ -79,7 +79,7 @@ a {
     font-family: 'Courier New', Courier, monospace;
   }
 body{
-  background-image: url("src/assets/shop.jpg");
+  background-image: url("assets/shop.jpg");
   background-repeat: no-repeat;
   background: cover;
   background-size: cover;
