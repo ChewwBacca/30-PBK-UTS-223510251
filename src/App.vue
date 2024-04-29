@@ -1,11 +1,9 @@
 <script setup>
 import project from './components/project.vue'
-import background from './components/background.vue'
 </script>
 
 <template>
   <project  />
-  <background/>
 </template>
 
 <style scoped>
