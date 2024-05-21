@@ -1,23 +1,39 @@
-<script setup>
-import project from './components/project.vue'
-</script>
-
 <template>
-  <project  />
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info" id="nav">
+      <button class="btn btn-light" @click="selectedMenu = 'todos'">Todos</button>
+      <button class="btn btn-light" @click="selectedMenu = 'posts'">Posts</button>
+    </nav>
+
+    <Todos v-if="selectedMenu === 'todos'" />
+    <Posts v-if="selectedMenu === 'posts'" />
+  </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script>
+import Todos from './components/Todos.vue';
+import Posts from './components/Posts.vue';
+
+export default {
+  components: {
+    Todos,
+    Posts,
+  },
+  data() {
+    return {
+      selectedMenu: 'todos',
+    };
+  },
+};
+</script>
+
+<style>
+#nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+#nav button {
+  margin: 0 10px;
 }
 </style>
-
