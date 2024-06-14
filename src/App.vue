@@ -1,31 +1,13 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info" id="nav">
-      <button class="btn btn-light" @click="selectedMenu = 'todos'">Todos</button>
-      <button class="btn btn-light" @click="selectedMenu = 'posts'">Posts</button>
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+      <router-link class="btn btn-light" to="/todos">Todos</router-link>
+      <router-link class="btn btn-light" to="/posts">Posts</router-link>
+      <router-link class="btn btn-light" to="/albums">Albums</router-link>
     </nav>
-
-    <Todos v-if="selectedMenu === 'todos'" />
-    <Posts v-if="selectedMenu === 'posts'" />
+    <router-view></router-view>
   </div>
 </template>
-
-<script>
-import Todos from './components/Todos.vue';
-import Posts from './components/Posts.vue';
-
-export default {
-  components: {
-    Todos,
-    Posts,
-  },
-  data() {
-    return {
-      selectedMenu: 'todos',
-    };
-  },
-};
-</script>
 
 <style>
 #nav {
@@ -33,7 +15,8 @@ export default {
   justify-content: center;
   margin-bottom: 20px;
 }
-#nav button {
+#nav .btn {
   margin: 0 10px;
+  text-decoration: none;
 }
 </style>
